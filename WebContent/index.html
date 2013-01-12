@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>选择查询库存的方式</title>
+
+<style>
+	fieldset{
+		padding: 20px;
+		
+	}
+	input{
+		margin:10px;
+		width:150px;
+	}
+</style>
+</head>
+<body>
+<h1>查看库存</h1>
+
+
+
+<fieldset>
+	<legend>排序</legend>
+	<input type="button" value="名称" name="name" onclick="orderBy(this.name)"/>
+	<input type="button" value="价格" name="price" onclick="orderBy(this.name)"/>
+	<br/>
+	<input type="button" value="数量" name="number" onclick="orderBy(this.name)"/>
+	<input type="button" value="生产日期" name="makeTime" onclick="orderBy(this.name)"/>
+</fieldset>
+<script type="text/javascript">
+function orderBy(val){
+		window.location.href="orderByResult.jsp?orderBy="+val;
+}
+</script>
+<br/>
+<fieldset >
+	<legend>分类</legend>
+	<input type="button" value="电器" name="wiring" onclick="typeQuery((this.value))"/>
+	<input type="button" value="食品" name="food" onclick="typeQuery(this.value)"/>
+	<br/>
+	<input type="button" value="服装" name="clothing" onclick="typeQuery(encodeURI(this.value))"/>
+	<input type="button" value="日用品" name="commodity" onclick="typeQuery(this.value)"/>
+</fieldset>
+
+<script type="text/javascript">
+function typeQuery(typeName){
+
+	window.location.href="typeQueryResult.jsp?typeName="+typeName;
+	
+}
+</script>
+</body>
+</html>
